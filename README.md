@@ -1,10 +1,8 @@
-# UTFPR
+###### UTFPR - Universidade Tecnológica Federal do Paraná
 
-# Universidade Tecnológica Federal do Paraná
+###### TrabalhoDesktop
 
-# TrabalhoDesktop
-
- # Projeto {
+###### > Projeto {
 
 Escolhemos como projeto para a disciplina um software
 de gerenciamento de series e filmes, com o intuito de 

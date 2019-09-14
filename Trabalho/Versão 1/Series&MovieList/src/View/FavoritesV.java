@@ -9,12 +9,12 @@ package View;
  *
  * @author Massallys
  */
-public class favoritesV extends javax.swing.JPanel {
+public class FavoritesV extends javax.swing.JPanel {
 
     /**
      * Creates new form favoritesV
      */
-    public favoritesV() {
+    public FavoritesV() {
         initComponents();
     }
 

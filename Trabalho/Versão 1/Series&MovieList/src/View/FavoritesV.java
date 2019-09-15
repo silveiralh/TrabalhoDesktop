@@ -27,19 +27,105 @@ public class FavoritesV extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTfavoritos = new javax.swing.JTable();
+        jLfavorites = new javax.swing.JLabel();
+        jLfavoriteslist = new javax.swing.JLabel();
+        jBadicionarfav = new javax.swing.JButton();
+        jBeditarfav = new javax.swing.JButton();
+        jBexcluirfav = new javax.swing.JButton();
+        jBgravacaofav = new javax.swing.JButton();
+        jBleiturafav = new javax.swing.JButton();
+
+        jTfavoritos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Series", "Filmes"
+            }
+        ));
+        jScrollPane1.setViewportView(jTfavoritos);
+
+        jLfavorites.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLfavorites.setText("Favorites");
+
+        jLfavoriteslist.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLfavoriteslist.setText("Favorites List");
+
+        jBadicionarfav.setText("Adicionar Fav");
+
+        jBeditarfav.setText("Editar Fav");
+
+        jBexcluirfav.setBackground(new java.awt.Color(255, 0, 0));
+        jBexcluirfav.setForeground(new java.awt.Color(255, 0, 0));
+        jBexcluirfav.setText("Excluir Fav");
+
+        jBgravacaofav.setText("gravacao.txt");
+
+        jBleiturafav.setText("leitura.txt");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jBadicionarfav)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBleiturafav, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBgravacaofav)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBeditarfav, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jBexcluirfav))
+                    .addComponent(jLfavorites))
+                .addGap(0, 34, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(jLfavoriteslist)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLfavorites)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBadicionarfav)
+                    .addComponent(jBeditarfav)
+                    .addComponent(jBexcluirfav))
+                .addGap(76, 76, 76)
+                .addComponent(jBgravacaofav)
+                .addGap(18, 18, 18)
+                .addComponent(jBleiturafav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jLfavoriteslist)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBadicionarfav;
+    private javax.swing.JButton jBeditarfav;
+    private javax.swing.JButton jBexcluirfav;
+    private javax.swing.JButton jBgravacaofav;
+    private javax.swing.JButton jBleiturafav;
+    private javax.swing.JLabel jLfavorites;
+    private javax.swing.JLabel jLfavoriteslist;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTfavoritos;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,27 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -29,82 +50,82 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPprincipal" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPprincipal" alignment="0" pref="488" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPprincipal" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPprincipal" min="-2" pref="437" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPprincipal">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[627, 345]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLnomeSerie" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="jLnomeprincipal" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLserie5" min="-2" pref="192" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLserie3" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                              <Component id="jLserie1" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                              <Component id="jLserie2" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                              <Component id="jLserie4" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLmarcador" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jCassistindo1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jCassistido1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLnomeSerie" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLmarcador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jCassistindo2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCassistido2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jCassistindo3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCassistido3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jCassistindo4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCassistido4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jCassistindo5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCassistido5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jTnomes" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jBadicionars" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLnomeprincipal" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBeditars" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jBexcluirs" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jBgravacaotxt" max="32767" attributes="0"/>
+                              <Component id="jLnomeprincipal1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBleituratxt" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -120,35 +141,25 @@
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLserie1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jCassistido1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCassistindo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTnomes" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLserie2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jCassistido2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCassistindo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBadicionars" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBeditars" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBexcluirs" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLserie3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jCassistido3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCassistindo3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLserie4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jCassistido4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCassistindo4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLserie5" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="jCassistido5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCassistindo5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
+                  <Component id="jBgravacaotxt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jBleituratxt" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jLnomeprincipal1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="124" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,7 +170,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Series List"/>
+            <Property name="text" type="java.lang.String" value="Series"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLnomeSerie">
@@ -178,52 +189,7 @@
             <Property name="text" type="java.lang.String" value="Marcador:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLserie3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serie"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLserie1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serie"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLserie2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serie"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLserie5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serie"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLserie4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serie"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="jCassistido1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Assistido"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistido2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Assistido"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistido3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Assistido"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistido4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Assistido"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistido5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Assistido"/>
           </Properties>
@@ -236,27 +202,70 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCassistindo1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistindo2">
+        <Component class="javax.swing.JTextField" name="jTnomes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Assistindo"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCassistindo2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistindo3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Assistindo"/>
+            <Property name="text" type="java.lang.String" value="Serie"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistindo4">
+        <Component class="javax.swing.JButton" name="jBadicionars">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Assistindo"/>
+            <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCassistindo5">
+        <Component class="javax.swing.JButton" name="jBeditars">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Assistindo"/>
+            <Property name="text" type="java.lang.String" value="Editar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBexcluirs">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLnomeprincipal1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Series List"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTserielist">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="2" rowCount="4">
+                    <Column editable="true" title="Serie" type="java.lang.Object"/>
+                    <Column editable="true" title="Marcador" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[300, 60]"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="jBleituratxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="leitura.txt"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBgravacaotxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="gravacao.txt"/>
           </Properties>
         </Component>
       </SubComponents>

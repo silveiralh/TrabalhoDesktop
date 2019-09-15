@@ -29,46 +29,58 @@ public class MenuV extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        jLnomemenu = new javax.swing.JLabel();
+        jBseriesp = new javax.swing.JButton();
+        jBfilmesp = new javax.swing.JButton();
+        jBsairp = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLnomemenu.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLnomemenu.setText("Series & Movies List");
+
+        jBseriesp.setText("Series");
+
+        jBfilmesp.setText("Filmes");
+        jBfilmesp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBfilmespActionPerformed(evt);
+            }
+        });
+
+        jBsairp.setText("Sair");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 249, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(jLnomemenu)
+                .addContainerGap(158, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBsairp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBfilmesp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBseriesp, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(188, 188, 188))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 177, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLnomemenu)
+                .addGap(52, 52, 52)
+                .addComponent(jBseriesp)
+                .addGap(18, 18, 18)
+                .addComponent(jBfilmesp)
+                .addGap(18, 18, 18)
+                .addComponent(jBsairp)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
-
-        jMenu2.setText("    Filmes    ");
-
-        jMenu4.setText("jMenu4");
-        jMenu2.add(jMenu4);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("    Séries    ");
-
-        jMenu5.setText("jMenu5");
-        jMenu3.add(jMenu5);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu6.setText("    Favoritos    ");
-        jMenuBar1.add(jMenu6);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,6 +95,10 @@ public class MenuV extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBfilmespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBfilmespActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBfilmespActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,13 +137,11 @@ public class MenuV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBfilmesp;
+    private javax.swing.JButton jBsairp;
+    private javax.swing.JButton jBseriesp;
+    private javax.swing.JLabel jLnomemenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,30 +29,43 @@ public class SeriesV extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPprincipal = new javax.swing.JPanel();
         jLnomeprincipal = new javax.swing.JLabel();
         jLnomeSerie = new javax.swing.JLabel();
         jLmarcador = new javax.swing.JLabel();
-        jLserie3 = new javax.swing.JLabel();
-        jLserie1 = new javax.swing.JLabel();
-        jLserie2 = new javax.swing.JLabel();
-        jLserie5 = new javax.swing.JLabel();
-        jLserie4 = new javax.swing.JLabel();
         jCassistido1 = new javax.swing.JCheckBox();
-        jCassistido2 = new javax.swing.JCheckBox();
-        jCassistido3 = new javax.swing.JCheckBox();
-        jCassistido4 = new javax.swing.JCheckBox();
-        jCassistido5 = new javax.swing.JCheckBox();
         jCassistindo1 = new javax.swing.JCheckBox();
-        jCassistindo2 = new javax.swing.JCheckBox();
-        jCassistindo3 = new javax.swing.JCheckBox();
-        jCassistindo4 = new javax.swing.JCheckBox();
-        jCassistindo5 = new javax.swing.JCheckBox();
+        jTnomes = new javax.swing.JTextField();
+        jBadicionars = new javax.swing.JButton();
+        jBeditars = new javax.swing.JButton();
+        jBexcluirs = new javax.swing.JButton();
+        jLnomeprincipal1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTserielist = new javax.swing.JTable();
+        jBleituratxt = new javax.swing.JButton();
+        jBgravacaotxt = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPprincipal.setPreferredSize(new java.awt.Dimension(627, 345));
+
         jLnomeprincipal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLnomeprincipal.setText("Series List");
+        jLnomeprincipal.setText("Series");
 
         jLnomeSerie.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLnomeSerie.setText("Nome da Serie:");
@@ -60,25 +73,7 @@ public class SeriesV extends javax.swing.JFrame {
         jLmarcador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLmarcador.setText("Marcador:");
 
-        jLserie3.setText("Serie");
-
-        jLserie1.setText("Serie");
-
-        jLserie2.setText("Serie");
-
-        jLserie5.setText("Serie");
-
-        jLserie4.setText("Serie");
-
         jCassistido1.setText("Assistido");
-
-        jCassistido2.setText("Assistido");
-
-        jCassistido3.setText("Assistido");
-
-        jCassistido4.setText("Assistido");
-
-        jCassistido5.setText("Assistido");
 
         jCassistindo1.setText("Assistindo");
         jCassistindo1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,71 +82,81 @@ public class SeriesV extends javax.swing.JFrame {
             }
         });
 
-        jCassistindo2.setText("Assistindo");
-        jCassistindo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCassistindo2ActionPerformed(evt);
+        jTnomes.setText("Serie");
+
+        jBadicionars.setText("Adicionar");
+
+        jBeditars.setText("Editar");
+
+        jBexcluirs.setBackground(new java.awt.Color(255, 0, 0));
+        jBexcluirs.setForeground(new java.awt.Color(255, 0, 0));
+        jBexcluirs.setText("Excluir");
+
+        jLnomeprincipal1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLnomeprincipal1.setText("Series List");
+
+        jTserielist.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Serie", "Marcador"
             }
-        });
+        ));
+        jTserielist.setPreferredSize(new java.awt.Dimension(300, 60));
+        jScrollPane2.setViewportView(jTserielist);
 
-        jCassistindo3.setText("Assistindo");
+        jBleituratxt.setText("leitura.txt");
 
-        jCassistindo4.setText("Assistindo");
-
-        jCassistindo5.setText("Assistindo");
+        jBgravacaotxt.setText("gravacao.txt");
 
         javax.swing.GroupLayout jPprincipalLayout = new javax.swing.GroupLayout(jPprincipal);
         jPprincipal.setLayout(jPprincipalLayout);
         jPprincipalLayout.setHorizontalGroup(
             jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLnomeSerie))
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLnomeprincipal))
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLserie5, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLserie3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLserie1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLserie2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLserie4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+            .addGroup(jPprincipalLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jLmarcador)
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jCassistindo1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCassistido1)
-                        .addContainerGap())
+                        .addGap(14, 14, 14))
+                    .addGroup(jPprincipalLayout.createSequentialGroup()
+                        .addComponent(jLnomeSerie)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLmarcador)
+                        .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jCassistindo2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCassistido2)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jCassistindo3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCassistido3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jCassistindo4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCassistido4)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jCassistindo5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCassistido5)
-                        .addContainerGap())))
+                        .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPprincipalLayout.createSequentialGroup()
+                                .addComponent(jTnomes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
+                                .addComponent(jBadicionars)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLnomeprincipal)
+                                    .addComponent(jBeditars))
+                                .addGap(98, 98, 98)))
+                        .addComponent(jBexcluirs)
+                        .addGap(52, 52, 52))))
+            .addGroup(jPprincipalLayout.createSequentialGroup()
+                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPprincipalLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPprincipalLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBgravacaotxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLnomeprincipal1)
+                            .addComponent(jBleituratxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         jPprincipalLayout.setVerticalGroup(
             jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,41 +169,36 @@ public class SeriesV extends javax.swing.JFrame {
                     .addComponent(jLmarcador))
                 .addGap(14, 14, 14)
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLserie1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCassistido1)
-                    .addComponent(jCassistindo1))
+                    .addComponent(jCassistindo1)
+                    .addComponent(jTnomes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLserie2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCassistido2)
-                    .addComponent(jCassistindo2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLserie3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCassistido3)
-                    .addComponent(jCassistindo3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLserie4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCassistido4)
-                    .addComponent(jCassistindo4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLserie5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCassistido5)
-                    .addComponent(jCassistindo5))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jBadicionars)
+                    .addComponent(jBeditars)
+                    .addComponent(jBexcluirs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jBgravacaotxt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBleituratxt)
+                .addGap(16, 16, 16)
+                .addComponent(jLnomeprincipal1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPprincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPprincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPprincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,10 +207,6 @@ public class SeriesV extends javax.swing.JFrame {
     private void jCassistindo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistindo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCassistindo1ActionPerformed
-
-    private void jCassistindo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistindo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCassistindo2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,24 +253,22 @@ public class SeriesV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jBadicionars;
+    private javax.swing.JButton jBeditars;
+    private javax.swing.JButton jBexcluirs;
+    private javax.swing.JButton jBgravacaotxt;
+    private javax.swing.JButton jBleituratxt;
     private javax.swing.JCheckBox jCassistido1;
-    private javax.swing.JCheckBox jCassistido2;
-    private javax.swing.JCheckBox jCassistido3;
-    private javax.swing.JCheckBox jCassistido4;
-    private javax.swing.JCheckBox jCassistido5;
     private javax.swing.JCheckBox jCassistindo1;
-    private javax.swing.JCheckBox jCassistindo2;
-    private javax.swing.JCheckBox jCassistindo3;
-    private javax.swing.JCheckBox jCassistindo4;
-    private javax.swing.JCheckBox jCassistindo5;
     private javax.swing.JLabel jLmarcador;
     private javax.swing.JLabel jLnomeSerie;
     private javax.swing.JLabel jLnomeprincipal;
-    private javax.swing.JLabel jLserie1;
-    private javax.swing.JLabel jLserie2;
-    private javax.swing.JLabel jLserie3;
-    private javax.swing.JLabel jLserie4;
-    private javax.swing.JLabel jLserie5;
+    private javax.swing.JLabel jLnomeprincipal1;
     private javax.swing.JPanel jPprincipal;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTnomes;
+    private javax.swing.JTable jTserielist;
     // End of variables declaration//GEN-END:variables
 }

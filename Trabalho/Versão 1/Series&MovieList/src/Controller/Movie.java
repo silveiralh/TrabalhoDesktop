@@ -1,19 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package modelo;
+package Controller;
 
-/**
- *
- * @author Rique
- */
-public class MovieM {
+import java.util.ArrayList;
+
+public class Movie {
     private String tituloFilme;
     private String genero;
     private Boolean foiAssistido;
-
+    ArrayList<Movie> ListaF;
+    
+    public Movie(){
+        ListaF = new ArrayList(); 
+    }
+    
+    public Movie(String tituloFilme, String genero, Boolean foiAssistido) {
+        this.tituloFilme = tituloFilme;
+        this.genero = genero;
+        this.foiAssistido = foiAssistido;
+        
+        ListaF = new ArrayList();
+    }
+    
     public String getTituloFilme() {
         return tituloFilme;
     }
@@ -36,6 +42,14 @@ public class MovieM {
 
     public void setFoiAssistido(Boolean foiAssistido) {
         this.foiAssistido = foiAssistido;
+    }
+
+    public ArrayList<Movie> getListaF() {
+        return ListaF;
+    }
+
+    public void setListaF(ArrayList<Movie> ListaF) {
+        this.ListaF = ListaF;
     }
     
 }

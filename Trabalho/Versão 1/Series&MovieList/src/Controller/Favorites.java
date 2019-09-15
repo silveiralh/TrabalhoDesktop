@@ -3,29 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package Controller;
 
 /**
  *
  * @author Rique
  */
-public class FavoritesM {
-    private MovieM[] listaFilmes;
-    private SerieM[] listaSeries;
+public class Favorites {
+    private Movie[] listaFilmes;
+    private Serie[] listaSeries;
 
-    public MovieM[] getListaFilmes() {
+    public Movie[] getListaFilmes() {
         return listaFilmes;
     }
 
-    public void setListaFilmes(MovieM[] listaFilmes) {
+    public void setListaFilmes(Movie[] listaFilmes) {
         this.listaFilmes = listaFilmes;
     }
 
-    public SerieM[] getListaSeries() {
+    public Serie[] getListaSeries() {
         return listaSeries;
     }
 
-    public void setListaSeries(SerieM[] listaSeries) {
+    public void setListaSeries(Serie[] listaSeries) {
         this.listaSeries = listaSeries;
     }
 }

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package Controller;
 
 /**
  *
  * @author Rique
  */
-public class SerieM {
+public class Serie {
     private String tituloSerie;
     private Integer temporada;
     private Boolean foiAssitida;

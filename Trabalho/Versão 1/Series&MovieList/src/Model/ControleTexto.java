@@ -1,4 +1,4 @@
-package controle;
+package Model;
 
 import java.io.*;
 

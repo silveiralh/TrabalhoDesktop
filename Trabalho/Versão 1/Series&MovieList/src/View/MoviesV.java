@@ -8,18 +8,37 @@ public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
     CadastrarMovieDAO cadastroM = new CadastrarMovieDAO();
-    
-    public void LoadTabelaFilmes(){
-        DefaultTableModel tabelaInteira = (DefaultTableModel) jTmovieList.getModel();
-        
- 
-        
-    }
+    DefaultTableModel tabelaInteira;
     
     public MoviesV() {
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(this); 
     }
+    
+    public void LoadTabelaFilmes(){
+        
+        try{
+            tabelaInteira = (DefaultTableModel) jTmovieList.getModel();
+            this.tabelaInteira = new DefaultTableModel();
+            
+            boolean nomeFilme = jTnomefilme.getText().equals(m.getTituloFilme());
+            boolean genero = JCbgenero.getSelectedItem().equals(m.getGenero());
+            boolean marcador = jCassistido1.isSelected() == m.getFoiAssistido();
+            
+            /*if(jTmovieList.getColumn("Filme").equals(this.tabelaInteira.addColumn(nomeFilme)))){      
+                this.tabelaInteira.addColumn(nomeFilme);
+                this.tabelaInteira.addColumn(genero);
+                this.tabelaInteira.addColumn(marcador);
+            }else{
+                System.out.println("Não inserido");
+            }*/
+            
+        }catch(Exception e){
+            System.out.println("Não foi inserido na tabela");
+        }
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -260,6 +279,7 @@ public class MoviesV extends javax.swing.JFrame {
         try {
             evt.equals(jBadicionarf.getAction());
             
+            //if((jTnomefilme.getText().equals(m.getTituloFilme())) && (JCbgenero.getSelectedItem().equals(m.getGenero())) && (jCassistido1.isSelected() == m.getFoiAssistido()))
             cadastroM.cadastrarFilme(m);
             LoadTabelaFilmes();
  

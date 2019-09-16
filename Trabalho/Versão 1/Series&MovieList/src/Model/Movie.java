@@ -1,4 +1,4 @@
-package Controller;
+package Model;
 
 import java.util.ArrayList;
 
@@ -6,19 +6,6 @@ public class Movie {
     private String tituloFilme;
     private String genero;
     private Boolean foiAssistido;
-    ArrayList<Movie> ListaF;
-    
-    public Movie(){
-        ListaF = new ArrayList(); 
-    }
-    
-    public Movie(String tituloFilme, String genero, Boolean foiAssistido) {
-        this.tituloFilme = tituloFilme;
-        this.genero = genero;
-        this.foiAssistido = foiAssistido;
-        
-        ListaF = new ArrayList();
-    }
     
     public String getTituloFilme() {
         return tituloFilme;
@@ -42,14 +29,6 @@ public class Movie {
 
     public void setFoiAssistido(Boolean foiAssistido) {
         this.foiAssistido = foiAssistido;
-    }
-
-    public ArrayList<Movie> getListaF() {
-        return ListaF;
-    }
-
-    public void setListaF(ArrayList<Movie> ListaF) {
-        this.ListaF = ListaF;
     }
     
 }

@@ -1,20 +1,22 @@
 package View;
 
-import Controller.Movie;
-import Model.cadastrarMovie;
+import Model.Movie;
+import Controller.CadastrarMovieDAO;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MoviesV extends javax.swing.JFrame {
-    ArrayList<Movie> filmes;
-    cadastrarMovie cadastroM = new cadastrarMovie();
+    
+    Movie m = new Movie();
+    CadastrarMovieDAO cadastroM = new CadastrarMovieDAO();
+    
     
     public void LoadListaFilmes(){
     }
     
     public MoviesV() {
         initComponents();
-        
-        filmes = new ArrayList();
         setLocationRelativeTo(this);
     }
 
@@ -250,7 +252,13 @@ public class MoviesV extends javax.swing.JFrame {
        jTnomefilme.setText("");
        jBadicionarf.setEnabled(true);
        
-       //cadastroM.cadastrar(M);
+        try {
+            cadastroM.cadastrarFilme(m);
+            jBadicionarf.addActionListener(jTnomefilme.getAction());
+        } catch (Exception ex) {
+            Logger.getLogger(MoviesV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
     }//GEN-LAST:event_jBadicionarfActionPerformed
 
     private void JCbgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCbgeneroActionPerformed

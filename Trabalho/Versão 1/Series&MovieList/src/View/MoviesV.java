@@ -2,17 +2,18 @@ package View;
 
 import Model.Movie;
 import Controller.CadastrarMovieDAO;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
     CadastrarMovieDAO cadastroM = new CadastrarMovieDAO();
     
-    
-    public void LoadListaFilmes(){
+    public void LoadTabelaFilmes(){
+        DefaultTableModel tabelaInteira = (DefaultTableModel) jTmovieList.getModel();
+        
+ 
+        
     }
     
     public MoviesV() {
@@ -44,7 +45,7 @@ public class MoviesV extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTmovieList = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,6 +77,11 @@ public class MoviesV extends javax.swing.JFrame {
         jLmarcador.setText("Marcador:");
 
         jCassistido1.setText("Assistido");
+        jCassistido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCassistido1ActionPerformed(evt);
+            }
+        });
 
         jTnomefilme.setText("Filme");
         jTnomefilme.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +130,7 @@ public class MoviesV extends javax.swing.JFrame {
 
         jButton2.setText("leitura.txt");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTmovieList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -135,7 +141,7 @@ public class MoviesV extends javax.swing.JFrame {
                 "Filme", "Gênero", "Marcador"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTmovieList);
 
         javax.swing.GroupLayout jPprincipalLayout = new javax.swing.GroupLayout(jPprincipal);
         jPprincipal.setLayout(jPprincipalLayout);
@@ -249,20 +255,34 @@ public class MoviesV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBadicionarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBadicionarfActionPerformed
-       jTnomefilme.setText("");
-       jBadicionarf.setEnabled(true);
+        jBadicionarf.setEnabled(true);
        
         try {
+            evt.equals(jBadicionarf.getAction());
+            
             cadastroM.cadastrarFilme(m);
-            jBadicionarf.addActionListener(jTnomefilme.getAction());
-        } catch (Exception ex) {
-            Logger.getLogger(MoviesV.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            LoadTabelaFilmes();
  
+        } catch (Exception ex) {
+            System.out.println("Filme não cadastrado");;
+        }
+        
+        jTnomefilme.setText("");
     }//GEN-LAST:event_jBadicionarfActionPerformed
 
     private void JCbgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCbgeneroActionPerformed
-        // TODO add your handling code here:
+        JCbgenero.setVisible(true);
+        int i = 0;
+        
+        try{
+            jBadicionarf.getActionCommand();
+            JCbgenero.getSelectedItem();
+
+            //System.out.println(JCbgenero.getSelectedItem());
+        }catch(Exception e){
+            System.out.println("Gênero não encontrado.");
+        }
+        
     }//GEN-LAST:event_JCbgeneroActionPerformed
 
     private void jBeditarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeditarfActionPerformed
@@ -272,6 +292,23 @@ public class MoviesV extends javax.swing.JFrame {
     private void jTnomefilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnomefilmeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTnomefilmeActionPerformed
+
+    private void jCassistido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistido1ActionPerformed
+        jCassistido1.setEnabled(true);
+        int i = 0;
+        
+        try{
+            jBadicionarf.getActionCommand();
+            jCassistido1.isSelected();
+            
+            //jCassistido1.isSelected() == m.getFoiAssistido()
+
+            //System.out.println("Selecionado");
+        }catch(Exception e){
+            System.out.println("Marcador não selecionado.");
+        }
+
+    }//GEN-LAST:event_jCassistido1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,7 +366,7 @@ public class MoviesV extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTmovieList;
     private javax.swing.JTextField jTnomefilme;
     // End of variables declaration//GEN-END:variables
 }

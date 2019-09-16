@@ -6,6 +6,15 @@ public class Movie {
     private String tituloFilme;
     private String genero;
     private Boolean foiAssistido;
+
+    public Movie(String tituloFilme, String genero, Boolean foiAssistido) {
+        this.tituloFilme = tituloFilme;
+        this.genero = genero;
+        this.foiAssistido = foiAssistido;
+    }
+    
+    public Movie(){
+    }
     
     public String getTituloFilme() {
         return tituloFilme;
@@ -29,6 +38,5 @@ public class Movie {
 
     public void setFoiAssistido(Boolean foiAssistido) {
         this.foiAssistido = foiAssistido;
-    }
-    
+    }     
 }

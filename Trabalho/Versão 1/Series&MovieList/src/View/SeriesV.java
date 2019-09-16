@@ -5,15 +5,17 @@
  */
 package View;
 
+import Controller.CadastrarSerieDAO;
+import Model.Serie;
+
 /**
  *
- * @author Massallys
+ * @author Massallys - Rique
  */
 public class SeriesV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form moviesV
-     */
+    Serie s = new Serie();
+    CadastrarSerieDAO cadastroS = new CadastrarSerieDAO();
     public SeriesV() {
         initComponents();
     }
@@ -35,8 +37,8 @@ public class SeriesV extends javax.swing.JFrame {
         jLnomeprincipal = new javax.swing.JLabel();
         jLnomeSerie = new javax.swing.JLabel();
         jLmarcador = new javax.swing.JLabel();
-        jCassistido1 = new javax.swing.JCheckBox();
-        jCassistindo1 = new javax.swing.JCheckBox();
+        jCassistido = new javax.swing.JCheckBox();
+        jCassistindo = new javax.swing.JCheckBox();
         jTnomes = new javax.swing.JTextField();
         jBadicionars = new javax.swing.JButton();
         jBeditars = new javax.swing.JButton();
@@ -73,18 +75,23 @@ public class SeriesV extends javax.swing.JFrame {
         jLmarcador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLmarcador.setText("Marcador:");
 
-        jCassistido1.setText("Assistido");
+        jCassistido.setText("Assistido");
 
-        jCassistindo1.setText("Assistindo");
-        jCassistindo1.addActionListener(new java.awt.event.ActionListener() {
+        jCassistindo.setText("Assistindo");
+        jCassistindo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCassistindo1ActionPerformed(evt);
+                jCassistindoActionPerformed(evt);
             }
         });
 
         jTnomes.setText("Serie");
 
         jBadicionars.setText("Adicionar");
+        jBadicionars.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBadicionarsActionPerformed(evt);
+            }
+        });
 
         jBeditars.setText("Editar");
 
@@ -122,9 +129,9 @@ public class SeriesV extends javax.swing.JFrame {
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jCassistindo1)
+                        .addComponent(jCassistindo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCassistido1)
+                        .addComponent(jCassistido)
                         .addGap(14, 14, 14))
                     .addGroup(jPprincipalLayout.createSequentialGroup()
                         .addComponent(jLnomeSerie)
@@ -169,8 +176,8 @@ public class SeriesV extends javax.swing.JFrame {
                     .addComponent(jLmarcador))
                 .addGap(14, 14, 14)
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCassistido1)
-                    .addComponent(jCassistindo1)
+                    .addComponent(jCassistido)
+                    .addComponent(jCassistindo)
                     .addComponent(jTnomes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,9 +211,29 @@ public class SeriesV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCassistindo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistindo1ActionPerformed
+    private void jCassistindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistindoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCassistindo1ActionPerformed
+    }//GEN-LAST:event_jCassistindoActionPerformed
+
+    private void jBadicionarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBadicionarsActionPerformed
+        jBadicionars.setEnabled(true);
+       
+        try {
+            evt.equals(jBadicionars.getAction());
+            s.setTituloSerie(jTnomes.getText());
+            s.setFoiAssitida(jCassistido.isSelected());
+            s.setSendoAssistida(jCassistindo.isSelected());
+            s.setTemporada(0);
+            cadastroS.cadastrarSerie(s);
+            System.out.println("Titulo:"+s.getTituloSerie()+"\nAssistido:"+s.getFoiAssitida());
+            //LoadTabelasSerie();
+ 
+        } catch (Exception ex) {
+            System.out.println("Filme não cadastrado");;
+        }
+        
+        jTnomes.setText("");
+    }//GEN-LAST:event_jBadicionarsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,8 +285,8 @@ public class SeriesV extends javax.swing.JFrame {
     private javax.swing.JButton jBexcluirs;
     private javax.swing.JButton jBgravacaotxt;
     private javax.swing.JButton jBleituratxt;
-    private javax.swing.JCheckBox jCassistido1;
-    private javax.swing.JCheckBox jCassistindo1;
+    private javax.swing.JCheckBox jCassistido;
+    private javax.swing.JCheckBox jCassistindo;
     private javax.swing.JLabel jLmarcador;
     private javax.swing.JLabel jLnomeSerie;
     private javax.swing.JLabel jLnomeprincipal;

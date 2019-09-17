@@ -3,7 +3,7 @@ package Controller;
 
 import Model.Serie;
 import java.util.ArrayList;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,42 +11,33 @@ import java.util.logging.Logger;
  */
 public class CadastrarSerieDAO {
         ArrayList<Serie> listaS = new ArrayList(); 
-
-    public void CadastrarSerieDAO(ArrayList<Serie> listaF) {
-        
+    
+    public CadastrarSerieDAO() {
+       this.listaS = new ArrayList<>();
     }
     
-    public void CadastrarSerieDAO() {
-        
+    public void cadastrarSerie(Serie serie){
+        this.listaS.add(serie);
     }
     
-    public void cadastrarSerie(Serie S) throws Exception{
-        this.listaS = listaS;
-        
-        try {
-            int i = 0;
-            
-            for(Serie s : listaS){
-               s.getTituloSerie();
-               s.getFoiAssitida();
-               s.getSendoAssistida();
-               s.getTemporada();
-               
-               listaS.add(s);
-
-               System.out.println(listaS);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger("Erro ao cadastrar a série.");
+    public void atualizarSerie(Serie serie, int index){
+        if(index < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser alterado");
+            return;
         }
+        this.listaS.set(index, serie);
     }
     
-    public void atualizarFilme(Serie S) throws Exception{
-        //movie.getListaS().add(S);
+    public void excluirSerie(int index){
+        if(index < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser excluido");
+            return;
+        }
+        this.listaS.remove(index);
     }
     
-    public void excluirFilme(Serie S) throws Exception{
-        //movie.getListaS().add(S);
+    public ArrayList<Serie> getSeriesCadastradas(){
+        return this.listaS;
     }
-
+    
 }

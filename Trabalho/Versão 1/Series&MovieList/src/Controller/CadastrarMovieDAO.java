@@ -8,8 +8,8 @@ import java.util.logging.Logger;
 
 public class CadastrarMovieDAO {
     ArrayList<Movie> listaF = new ArrayList(); 
-    String[] colunaTabela = {"Nome do Filme", "Gênero", "Marcador"};
-            
+    MoviesV mv = new MoviesV();
+    
     public void CadastrarMovieDAO(ArrayList<Movie> listaF) {
         
     }
@@ -28,7 +28,6 @@ public class CadastrarMovieDAO {
                m.getTituloFilme();
                m.getGenero();
                m.getFoiAssistido();
-               
                listaF.add(m);
 
                System.out.println(listaF);
@@ -45,30 +44,5 @@ public class CadastrarMovieDAO {
     public void excluirFilme(Movie M) throws Exception{
         //movie.getListaF().add(M);
     }
-
-    public int getRowCount(){
-        return this.listaF.size();
-    }
-    
-    public int columnCount(){
-        return colunaTabela.length;
-    }
-    
-    public Object getValueAt(int rowIndex, int columnIndex){
-        switch(columnIndex){
-            case 0:
-                return this.listaF.get(rowIndex).getTituloFilme();
-            case 1:
-                return this.listaF.get(rowIndex).getGenero();
-            case 2:
-                return this.listaF.get(rowIndex).getFoiAssistido(); 
-            default:
-                return this.listaF.get(rowIndex);
-        }
-    }
-    
-    public String getColumnName(int columnIndex){
-        return this.colunaTabela[columnIndex];
-}
     
 }

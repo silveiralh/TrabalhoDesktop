@@ -2,13 +2,14 @@ package View;
 
 import Model.Movie;
 import Controller.CadastrarMovieDAO;
+import javax.swing.Action;
 import javax.swing.table.DefaultTableModel;
 
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
+    
     CadastrarMovieDAO cadastroM = new CadastrarMovieDAO();
-    DefaultTableModel tabelaInteira;
     
     public MoviesV() {
         initComponents();
@@ -17,25 +18,14 @@ public class MoviesV extends javax.swing.JFrame {
     
     public void LoadTabelaFilmes(){
         
-        try{
-            tabelaInteira = (DefaultTableModel) jTmovieList.getModel();
-            this.tabelaInteira = new DefaultTableModel();
-            
-            boolean nomeFilme = jTnomefilme.getText().equals(m.getTituloFilme());
-            boolean genero = JCbgenero.getSelectedItem().equals(m.getGenero());
-            boolean marcador = jCassistido1.isSelected() == m.getFoiAssistido();
-            
-            /*if(jTmovieList.getColumn("Filme").equals(this.tabelaInteira.addColumn(nomeFilme)))){      
-                this.tabelaInteira.addColumn(nomeFilme);
-                this.tabelaInteira.addColumn(genero);
-                this.tabelaInteira.addColumn(marcador);
-            }else{
-                System.out.println("Não inserido");
-            }*/
+        try{  
+            jTPmovieList.getActions();
             
         }catch(Exception e){
             System.out.println("Não foi inserido na tabela");
         }
+        
+        jTPmovieList.setVisible(true);
     }
     
     
@@ -63,8 +53,8 @@ public class MoviesV extends javax.swing.JFrame {
         jLgenero = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTmovieList = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTPmovieList = new javax.swing.JTextPane();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,18 +139,16 @@ public class MoviesV extends javax.swing.JFrame {
 
         jButton2.setText("leitura.txt");
 
-        jTmovieList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Filme", "Gênero", "Marcador"
+        jTPmovieList.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
-        ));
-        jScrollPane3.setViewportView(jTmovieList);
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTPmovieListAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(jTPmovieList);
 
         javax.swing.GroupLayout jPprincipalLayout = new javax.swing.GroupLayout(jPprincipal);
         jPprincipal.setLayout(jPprincipalLayout);
@@ -169,9 +157,6 @@ public class MoviesV extends javax.swing.JFrame {
             .addGroup(jPprincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())
                     .addGroup(jPprincipalLayout.createSequentialGroup()
                         .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBadicionarf)
@@ -212,7 +197,8 @@ public class MoviesV extends javax.swing.JFrame {
                                 .addGap(297, 297, 297))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
                                 .addComponent(jLnomeprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(165, 165, 165))))))
+                                .addGap(165, 165, 165))))
+                    .addComponent(jScrollPane1)))
         );
         jPprincipalLayout.setVerticalGroup(
             jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +236,8 @@ public class MoviesV extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jLnomeprincipal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,10 +264,13 @@ public class MoviesV extends javax.swing.JFrame {
         jBadicionarf.setEnabled(true);
        
         try {
-            evt.equals(jBadicionarf.getAction());
+            String nomefilme = jTnomefilme.getText();
+            String genero = JCbgenero.getName();
+            boolean marcador = jCassistido1.isSelected();
             
-            //if((jTnomefilme.getText().equals(m.getTituloFilme())) && (JCbgenero.getSelectedItem().equals(m.getGenero())) && (jCassistido1.isSelected() == m.getFoiAssistido()))
-            cadastroM.cadastrarFilme(m);
+            evt.equals(jBadicionarf.getAction());
+            evt.getActionCommand();
+            
             LoadTabelaFilmes();
  
         } catch (Exception ex) {
@@ -329,6 +319,10 @@ public class MoviesV extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jCassistido1ActionPerformed
+
+    private void jTPmovieListAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTPmovieListAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTPmovieListAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -382,11 +376,11 @@ public class MoviesV extends javax.swing.JFrame {
     private javax.swing.JLabel jLnomeprincipal;
     private javax.swing.JLabel jLnomeprincipal1;
     private javax.swing.JPanel jPprincipal;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextPane jTPmovieList;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTmovieList;
     private javax.swing.JTextField jTnomefilme;
     // End of variables declaration//GEN-END:variables
 }

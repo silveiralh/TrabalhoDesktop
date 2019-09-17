@@ -98,6 +98,9 @@ public class MenuV extends javax.swing.JFrame {
 
     private void jBfilmespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBfilmespActionPerformed
         new MoviesV().setVisible(true);
+    }
+    private void jBseriespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBfilmespActionPerformed
+        new MoviesV().setVisible(true);
     }//GEN-LAST:event_jBfilmespActionPerformed
 
     /**

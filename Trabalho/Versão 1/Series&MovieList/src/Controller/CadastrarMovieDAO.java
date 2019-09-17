@@ -1,48 +1,38 @@
 package Controller;
 
 import Model.Movie;
-import View.MoviesV;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class CadastrarMovieDAO {
-    ArrayList<Movie> listaF = new ArrayList(); 
-    MoviesV mv = new MoviesV();
+    ArrayList<Movie> listaF;
     
-    public void CadastrarMovieDAO(ArrayList<Movie> listaF) {
-        
+    public CadastrarMovieDAO() {
+       this.listaF = new ArrayList<>();
     }
     
-    public void CadastrarMovieDAO() {
-        
+    public void cadastrarFilme(Movie movie){
+        this.listaF.add(movie);
     }
     
-    public void cadastrarFilme(Movie M) throws Exception{
-        this.listaF = listaF;
-        
-        try {
-            int i = 0;
-            
-            for(Movie m : listaF){
-               m.getTituloFilme();
-               m.getGenero();
-               m.getFoiAssistido();
-               listaF.add(m);
-
-               System.out.println(listaF);
-            }
-        } catch (Exception ex) {
-            Logger.getLogger("Erro ao cadastrar o filme.");
+    public void atualizarFilme(Movie movie, int index){
+        if(index < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser alterado");
+            return;
         }
+        this.listaF.set(index, movie);
     }
     
-    public void atualizarFilme(Movie M) throws Exception{
-        //movie.getListaF().add(M);
+    public void excluirFilme(int index){
+        if(index < 0){
+            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser excluido");
+            return;
+        }
+        this.listaF.remove(index);
     }
     
-    public void excluirFilme(Movie M) throws Exception{
-        //movie.getListaF().add(M);
+    public ArrayList<Movie> getFilmesCadastrados(){
+        return this.listaF;
     }
     
 }

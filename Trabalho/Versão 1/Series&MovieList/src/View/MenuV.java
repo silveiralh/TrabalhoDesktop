@@ -97,7 +97,7 @@ public class MenuV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBfilmespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBfilmespActionPerformed
-        // TODO add your handling code here:
+        new MoviesV().setVisible(true);
     }//GEN-LAST:event_jBfilmespActionPerformed
 
     /**

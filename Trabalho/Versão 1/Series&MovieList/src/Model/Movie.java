@@ -38,5 +38,6 @@ public class Movie {
 
     public void setFoiAssistido(Boolean foiAssistido) {
         this.foiAssistido = foiAssistido;
-    }     
+    }
+   
 }

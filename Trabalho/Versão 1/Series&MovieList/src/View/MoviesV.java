@@ -2,13 +2,18 @@ package View;
 
 import Model.Movie;
 import Controller.CadastrarMovieDAO;
+import Controller.ControleArquivo;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Action;
 import javax.swing.table.DefaultTableModel;
 
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
+    ControleArquivo contrArq = new ControleArquivo();
     
     CadastrarMovieDAO cadastroDao = new CadastrarMovieDAO();
     
@@ -66,8 +71,8 @@ public class MoviesV extends javax.swing.JFrame {
         jBexcluirf = new javax.swing.JButton();
         JCbgenero = new javax.swing.JComboBox();
         jLgenero = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBgravarTxt = new javax.swing.JButton();
+        jBlerTxt = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -140,9 +145,14 @@ public class MoviesV extends javax.swing.JFrame {
         jLgenero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLgenero.setText("Gênero");
 
-        jButton1.setText("gravacao.txt");
+        jBgravarTxt.setText("gravacao.txt");
+        jBgravarTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBgravarTxtActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("leitura.txt");
+        jBlerTxt.setText("leitura.txt");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,30 +182,28 @@ public class MoviesV extends javax.swing.JFrame {
                     .addGroup(jPprincipalLayout.createSequentialGroup()
                         .addComponent(jScrollPane3)
                         .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
+                        .addGap(0, 286, Short.MAX_VALUE)
+                        .addComponent(jLnomeprincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(297, 297, 297))
                     .addGroup(jPprincipalLayout.createSequentialGroup()
                         .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBadicionarf)
                             .addComponent(jLnomeFilme)
                             .addComponent(jTnomefilme, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
                         .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPprincipalLayout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSeparator1)))
+                                .addComponent(jBlerTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jSeparator1)
                                 .addGap(79, 79, 79))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                                .addGap(45, 45, 45)
+                            .addGroup(jPprincipalLayout.createSequentialGroup()
                                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLgenero)
                                     .addComponent(JCbgenero, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jBeditarf))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                                 .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jBexcluirf, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPprincipalLayout.createSequentialGroup()
@@ -203,16 +211,14 @@ public class MoviesV extends javax.swing.JFrame {
                                         .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jCassistido1)
                                             .addComponent(jLmarcador))))
-                                .addGap(29, 29, 29))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                                .addComponent(jLnomeprincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(297, 297, 297))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPprincipalLayout.createSequentialGroup()
-                                .addComponent(jLnomeprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(165, 165, 165))))))
+                                .addGap(29, 29, 29))
+                            .addGroup(jPprincipalLayout.createSequentialGroup()
+                                .addComponent(jBgravarTxt)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
+            .addGroup(jPprincipalLayout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(jLnomeprincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPprincipalLayout.setVerticalGroup(
             jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +235,11 @@ public class MoviesV extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addComponent(jLnomeFilme)
                         .addGap(2, 2, 2)))
-                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPprincipalLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))
                     .addGroup(jPprincipalLayout.createSequentialGroup()
                         .addGroup(jPprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTnomefilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,15 +251,12 @@ public class MoviesV extends javax.swing.JFrame {
                             .addComponent(jBeditarf)
                             .addComponent(jBexcluirf))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addGroup(jPprincipalLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBgravarTxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBlerTxt)
+                        .addGap(20, 20, 20)))
                 .addComponent(jLnomeprincipal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(202, 202, 202))
         );
@@ -331,6 +338,19 @@ public class MoviesV extends javax.swing.JFrame {
         reloadTableFilmes();
     }//GEN-LAST:event_jBexcluirfActionPerformed
 
+    private void jBgravarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgravarTxtActionPerformed
+        ArrayList<Movie> filmes = this.cadastroDao.getFilmesCadastrados();
+        
+        evt.getActionCommand();
+        
+        try {
+            contrArq.CriaArquivoFilme();
+            contrArq.EscreverArquivoFilme(filmes, rootPaneCheckingEnabled);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBgravarTxtActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -340,8 +360,8 @@ public class MoviesV extends javax.swing.JFrame {
     private javax.swing.JButton jBadicionarf;
     private javax.swing.JButton jBeditarf;
     private javax.swing.JButton jBexcluirf;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBgravarTxt;
+    private javax.swing.JButton jBlerTxt;
     private javax.swing.JCheckBox jCassistido1;
     private javax.swing.JLabel jLgenero;
     private javax.swing.JLabel jLmarcador;

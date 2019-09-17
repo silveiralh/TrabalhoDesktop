@@ -14,6 +14,16 @@ public class Serie {
     private Integer temporada;
     private Boolean foiAssitida;
     private Boolean sendoAssistida;
+    
+    public Serie(String tituloSerie, int temporada, Boolean sendoAssistida) {
+        this.tituloSerie = tituloSerie;
+        this.temporada = temporada;
+        this.sendoAssistida = sendoAssistida;
+    }
+    
+    public Serie(){
+        
+    }
 
     public String getTituloSerie() {
         return tituloSerie;

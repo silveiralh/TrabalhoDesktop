@@ -135,7 +135,6 @@ public class SeriesV extends javax.swing.JFrame {
             }
         });
 
-        jBexcluirs.setBackground(new java.awt.Color(255, 0, 0));
         jBexcluirs.setForeground(new java.awt.Color(255, 0, 0));
         jBexcluirs.setText("Excluir");
         jBexcluirs.addActionListener(new java.awt.event.ActionListener() {

@@ -287,7 +287,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBgravarTxt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="gravacao.txt"/>
+            <Property name="text" type="java.lang.String" value="gravacao.obj"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBgravarTxtActionPerformed"/>
@@ -295,8 +295,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBlerTxt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="leitura.txt"/>
+            <Property name="text" type="java.lang.String" value="leitura.obj"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBlerTxtActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
           <AuxValues>

@@ -2,7 +2,7 @@ package View;
 
 import Model.Movie;
 import Controller.CadastrarMovieDAO;
-import Controller.ControleArquivo;
+import Controller.ControleBinario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
-    ControleArquivo contrArq = new ControleArquivo();
+    ControleBinario contrArq = new ControleBinario();
     
     CadastrarMovieDAO cadastroDao = new CadastrarMovieDAO();
     
@@ -145,14 +145,19 @@ public class MoviesV extends javax.swing.JFrame {
         jLgenero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLgenero.setText("Gênero");
 
-        jBgravarTxt.setText("gravacao.txt");
+        jBgravarTxt.setText("gravacao.obj");
         jBgravarTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBgravarTxtActionPerformed(evt);
             }
         });
 
-        jBlerTxt.setText("leitura.txt");
+        jBlerTxt.setText("leitura.obj");
+        jBlerTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlerTxtActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -344,12 +349,27 @@ public class MoviesV extends javax.swing.JFrame {
         evt.getActionCommand();
         
         try {
-            contrArq.CriaArquivoFilme();
-            contrArq.EscreverArquivoFilme(filmes, rootPaneCheckingEnabled);
+            CadastrarMovieDAO movieD = null;
+            contrArq.escreverMovie(movieD);
+            //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
+        } catch (IOException ex) {
+            System.out.println(ex);;
+        }
+        
+        
+    }//GEN-LAST:event_jBgravarTxtActionPerformed
+
+    private void jBlerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlerTxtActionPerformed
+        String arquivo = null;
+        
+        try {
+            contrArq.leitorMovie(arquivo);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }//GEN-LAST:event_jBgravarTxtActionPerformed
+    }//GEN-LAST:event_jBlerTxtActionPerformed
 
 
 

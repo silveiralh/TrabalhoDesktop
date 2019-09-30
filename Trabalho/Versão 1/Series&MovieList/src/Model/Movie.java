@@ -1,8 +1,11 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Serializable{
+    private static final String arquivo = "C:\\Users\\Massallys\\Desktop\\movie.obj";
+     
     private String tituloFilme;
     private String genero;
     private Boolean foiAssistido;

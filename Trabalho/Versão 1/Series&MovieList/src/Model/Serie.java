@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
-/**
- *
- * @author Rique
- */
-public class Serie {
+import java.io.Serializable;
+
+public class Serie implements Serializable{
+    private static final String arquivo = "C:\\Users\\Massallys\\Desktop\\series.obj";
+    
     private String tituloSerie;
     private Integer temporada;
     private Boolean foiAssitida;

@@ -2,7 +2,11 @@ package View;
 
 import Model.Serie;
 import Controller.CadastrarSerieDAO;
+import Controller.ControleBinario;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -12,6 +16,8 @@ public class SeriesV extends javax.swing.JFrame {
 
     Serie s = new Serie();
     CadastrarSerieDAO cadastroDao = new CadastrarSerieDAO();
+    ControleBinario contrArq = new ControleBinario();
+    
     public SeriesV() {
         initComponents();
         setLocationRelativeTo(this);
@@ -160,9 +166,19 @@ public class SeriesV extends javax.swing.JFrame {
         jTserielist.setPreferredSize(new java.awt.Dimension(300, 60));
         jScrollPane2.setViewportView(jTserielist);
 
-        jBleituratxt.setText("leitura.txt");
+        jBleituratxt.setText("leitura.obj");
+        jBleituratxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBleituratxtActionPerformed(evt);
+            }
+        });
 
-        jBgravacaotxt.setText("gravacao.txt");
+        jBgravacaotxt.setText("gravacao.obj");
+        jBgravacaotxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBgravacaotxtActionPerformed(evt);
+            }
+        });
 
         jTtemporada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,6 +320,32 @@ public class SeriesV extends javax.swing.JFrame {
     private void jCassistidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistidoActionPerformed
         
     }//GEN-LAST:event_jCassistidoActionPerformed
+
+    private void jBgravacaotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgravacaotxtActionPerformed
+         ArrayList<Serie> series = this.cadastroDao.getSeriesCadastradas();
+        
+        evt.getActionCommand();
+        
+        try {
+            CadastrarSerieDAO serieD = null;
+            contrArq.escreverSerie(serieD);
+            //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBgravacaotxtActionPerformed
+
+    private void jBleituratxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBleituratxtActionPerformed
+        String arquivo = null;
+        
+        try {
+            contrArq.leitorMovie(arquivo);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jBleituratxtActionPerformed
 
     /**
      * @param args the command line arguments

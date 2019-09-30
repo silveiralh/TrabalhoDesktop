@@ -294,13 +294,19 @@
         </Container>
         <Component class="javax.swing.JButton" name="jBleituratxt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="leitura.txt"/>
+            <Property name="text" type="java.lang.String" value="leitura.obj"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBleituratxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBgravacaotxt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="gravacao.txt"/>
+            <Property name="text" type="java.lang.String" value="gravacao.obj"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBgravacaotxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTtemporada">
           <Events>

@@ -326,25 +326,20 @@ public class SeriesV extends javax.swing.JFrame {
         
         evt.getActionCommand();
         
-        try {
-            CadastrarSerieDAO serieD = null;
-            contrArq.escreverSerie(serieD);
-            //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+        contrArq.escreverSerie(s);
+          
     }//GEN-LAST:event_jBgravacaotxtActionPerformed
 
     private void jBleituratxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBleituratxtActionPerformed
         String arquivo = null;
         
+        
         try {
-            contrArq.leitorMovie(arquivo);
+            contrArq.leitorSerie();
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
+            Logger.getLogger(SeriesV.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jBleituratxtActionPerformed
 
     /**

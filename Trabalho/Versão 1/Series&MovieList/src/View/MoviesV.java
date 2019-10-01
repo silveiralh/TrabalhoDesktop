@@ -13,9 +13,8 @@ import javax.swing.table.DefaultTableModel;
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
+     CadastrarMovieDAO cadastroDao = new CadastrarMovieDAO();
     ControleBinario contrArq = new ControleBinario();
-    
-    CadastrarMovieDAO cadastroDao = new CadastrarMovieDAO();
     
     public MoviesV() {
         initComponents();
@@ -348,27 +347,21 @@ public class MoviesV extends javax.swing.JFrame {
         
         evt.getActionCommand();
         
-        try {
-            CadastrarMovieDAO movieD = null;
-            contrArq.escreverMovie(movieD);
-            //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
-        } catch (IOException ex) {
-            System.out.println(ex);;
-        }
+        contrArq.escreverMovie(m);
+        //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
         
         
     }//GEN-LAST:event_jBgravarTxtActionPerformed
 
     private void jBlerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlerTxtActionPerformed
         String arquivo = null;
-        
+
         try {
-            contrArq.leitorMovie(arquivo);
+            contrArq.leitorMovie();
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex);
-        } catch (IOException ex) {
-            System.out.println(ex);
+            Logger.getLogger(MoviesV.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jBlerTxtActionPerformed
 
 

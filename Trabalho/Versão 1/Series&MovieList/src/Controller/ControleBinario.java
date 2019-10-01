@@ -2,98 +2,121 @@ package Controller;
 
 import Model.Movie;
 import Model.Serie;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControleBinario {
-    /*
-    public static void main(String[] args) throws FileNotFoundException,
-            IOException, ClassNotFoundException {
-//        Movie employee = new Movie("Peter", "asdf", true);
-//        Serie s = new Serie("Peter", 1, true);
-//        ControleBinario control = new ControleBinario();
-//        control.escreverMovie(employee);
-//        control.escreverSerie(s);
-//        leitor(employee.getArquivo());
-    }*/
-
-    public void escreverMovie(CadastrarMovieDAO movieD) throws FileNotFoundException,IOException {
-        FileOutputStream fileFilmes = null;
-        ObjectOutputStream escritaObj = null;
-        
+    //filme
+    private FileInputStream inf;
+    private ObjectInputStream oisf;
+   
+    private FileOutputStream outf;
+    private ObjectOutputStream oosf;
+    
+    //serie
+    private FileInputStream ins;
+    private ObjectInputStream oiss;
+   
+    private FileOutputStream outs;
+    private ObjectOutputStream ooss;
+    
+    
+    public ControleBinario(){
+        //filme
         try {
-            fileFilmes = new FileOutputStream(movieD.getFilmesCadastrados().toString());
-            escritaObj = new ObjectOutputStream(fileFilmes);
-
-            escritaObj.writeObject(movieD);
-            System.out.println("Gravação realizada com sucesso.\n");
+            this.inf = new FileInputStream(System.getProperty("user.dir")+"/src/arq/movies.obj");
+            this.oisf = new ObjectInputStream(inf);
             
-            escritaObj.close();
-        } catch (IOException e) {
-            System.out.println("Não foi possivel Gravar.\n" + e.getMessage());
+            this.outf = new FileOutputStream(System.getProperty("user.dir")+"/src/arq/movies.obj");
+            this.oosf = new ObjectOutputStream(outf);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ControleBinario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ControleBinario.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public void escreverSerie(CadastrarSerieDAO serieD) throws FileNotFoundException, IOException {
-        FileOutputStream fileSeries = null;
-        ObjectOutputStream escritaObj = null;
         
+        //serie
         try {
-            fileSeries = new FileOutputStream(serieD.getSeriesCadastradas().toString());
-            escritaObj = new ObjectOutputStream(fileSeries);
+            this.ins = new FileInputStream(System.getProperty("user.dir")+"/src/arq/series.obj");
+            this.oiss = new ObjectInputStream(ins);
             
-            escritaObj.writeObject(serieD);
-            System.out.println("Gravação realizada com sucesso.\n");
-            
-            escritaObj.close();
-        } catch (IOException e) {
-            System.out.println("Não foi possivel Gravar.\n" + e.getMessage());
+            this.outs = new FileOutputStream(System.getProperty("user.dir")+"/src/arq/series.obj");
+            this.ooss = new ObjectOutputStream(outs);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ControleBinario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ControleBinario.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public final Object leitorMovie(String arquivo) throws ClassNotFoundException, IOException {
-        Object dados = null;
-        
-        try {
-            FileInputStream leitura = new FileInputStream(arquivo); 
-            ObjectInputStream leituraobj = new ObjectInputStream(leitura);
-            
-            leituraobj.readObject();
-            dados = leituraobj.readObject();
-            
-            System.out.println(" " + dados.toString());
-        }
-        catch (IOException e) {
-                System.out.println("Não foi possível fazer a leitura.\n "+e.getMessage());
-        }
-        
-        return dados;
     }
     
-    public final Object leitorSerie(String arquivo) throws ClassNotFoundException, IOException {
-        Object dados = null;
+    public void escreverMovie(Movie movie) {
+        try {
+            oosf.writeObject(movie);
+            oosf.flush();
+            oosf.close();
+            outf.flush();
+            outf.close();
+        } catch (IOException ex) {
+            System.out.println("Erro de escrita de filme. "+ex.getMessage());
+        }
+    }
+
+    public void escreverSerie(Serie serie) {
+        try {
+            ooss.writeObject(serie);
+            ooss.flush();
+            ooss.close();
+            outs.flush();
+            outs.close();
+        } catch (IOException ex) {
+            System.out.println("Erro de escrita da serie."+ex.getMessage());
+        }
+    }
+
+    public ArrayList <Movie> leitorMovie() throws ClassNotFoundException {
+        ArrayList<Movie> filmes = new ArrayList<>();
         
         try {
-            FileInputStream leitura = new FileInputStream(arquivo); 
-            ObjectInputStream leituraobj = new ObjectInputStream(leitura);
-            
-            leituraobj.readObject();
-            dados = leituraobj.readObject();
-            
-            System.out.println(" " + dados.toString());
+            Movie obj = (Movie)oisf.readObject();
+            while (obj != null){
+                filmes.add(obj);
+                obj = (Movie)oisf.readObject();
+            }
+            oisf.close();
+            inf.close();
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
+            System.out.println("Erro de leitura de filme.");
+        } catch (NullPointerException ex){
         }
-        catch (IOException e) {
-                System.out.println("Não foi possível fazer a leitura.\n "+e.getMessage());
-        }
+        return filmes;
+    }
+    
+    public ArrayList<Serie> leitorSerie() throws ClassNotFoundException {
+        ArrayList<Serie> series = new ArrayList<>();
         
-        return dados;
+        try {
+            Serie obj = (Serie)oiss.readObject();
+            while (obj != null){
+                series.add(obj);
+                obj = (Serie)oiss.readObject();
+            }
+            oiss.close();
+            ins.close();
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
+            System.out.println("Erro de leitura da serie.");
+        } catch (NullPointerException ex){
+        }
+        return series;
     }
 
 }

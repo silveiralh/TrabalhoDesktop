@@ -4,10 +4,10 @@ import Model.Movie;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class CadastrarMovieDAO {
+public class MovieController {
     ArrayList<Movie> listaF;
     
-    public CadastrarMovieDAO() {
+    public MovieController() {
        this.listaF = new ArrayList<>();
     }
     

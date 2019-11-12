@@ -1,8 +1,7 @@
 package View;
 
 import Model.Movie;
-import Controller.CadastrarMovieDAO;
-import Controller.ControleBinario;
+import Controller.MovieController;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -13,8 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public class MoviesV extends javax.swing.JFrame {
     
     Movie m = new Movie();
-     CadastrarMovieDAO cadastroDao = new CadastrarMovieDAO();
-    ControleBinario contrArq = new ControleBinario();
+     MovieController cadastroDao = new MovieController();
     
     public MoviesV() {
         initComponents();

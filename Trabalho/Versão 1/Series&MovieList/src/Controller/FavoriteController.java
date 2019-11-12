@@ -9,6 +9,6 @@ package Controller;
  *
  * @author Massallys
  */
-public class CadastrarFavoriteDAO {
+public class FavoriteController {
     
 }

@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
  *
  * @author Rique
  */
-public class CadastrarSerieDAO {
+public class SerieController {
         ArrayList<Serie> listaS = new ArrayList(); 
     
-    public CadastrarSerieDAO() {
+    public SerieController() {
        this.listaS = new ArrayList<>();
     }
     

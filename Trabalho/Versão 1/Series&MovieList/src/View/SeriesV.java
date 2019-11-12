@@ -1,8 +1,7 @@
 package View;
 
 import Model.Serie;
-import Controller.CadastrarSerieDAO;
-import Controller.ControleBinario;
+import Controller.SerieController;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -15,8 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class SeriesV extends javax.swing.JFrame {
 
     Serie s = new Serie();
-    CadastrarSerieDAO cadastroDao = new CadastrarSerieDAO();
-    ControleBinario contrArq = new ControleBinario();
+    SerieController cadastroDao = new SerieController();
     
     public SeriesV() {
         initComponents();

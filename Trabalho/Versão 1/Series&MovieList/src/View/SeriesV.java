@@ -52,8 +52,9 @@ public class SeriesV extends javax.swing.JFrame {
         String nome = jTnomes.getText();
         int temporada = Integer.parseInt( jTtemporada.getText());
         boolean marcador = jCassistindo.isSelected();
+        boolean marcador2 = jCassistido.isSelected();
             
-        s = new Serie(nome, temporada, marcador);
+        s = new Serie(nome, temporada, marcador, marcador2);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -19,12 +19,13 @@ public class MoviesV extends javax.swing.JFrame {
         setLocationRelativeTo(this);
     }
     
+    /*
     public void reloadTableFilmes(){
         
         DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
         dtm.setRowCount(0);
         
-        ArrayList<Movie> filmes = this.cadastroDao.getFilmesCadastrados();
+        //ArrayList<Movie> filmes = this.cadastroDao.getFilmesCadastrados();
         
         for(Movie movie : filmes){
             String assistido;
@@ -38,6 +39,7 @@ public class MoviesV extends javax.swing.JFrame {
         }
         
     }
+    */
     
     public void getFilmeAtual(){
         String nome = jTnomefilme.getText();
@@ -284,13 +286,13 @@ public class MoviesV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBadicionarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBadicionarfActionPerformed
-        getFilmeAtual();
+        //getFilmeAtual();
             
-        this.cadastroDao.cadastrarFilme(m);
+        //this.cadastroDao.cadastrarFilme(m);
             
-        reloadTableFilmes();
+        //reloadTableFilmes();
  
-        jTnomefilme.setText("");
+        //jTnomefilme.setText("");
     }//GEN-LAST:event_jBadicionarfActionPerformed
 
     private void JCbgeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCbgeneroActionPerformed
@@ -309,9 +311,9 @@ public class MoviesV extends javax.swing.JFrame {
     }//GEN-LAST:event_JCbgeneroActionPerformed
 
     private void jBeditarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeditarfActionPerformed
-        getFilmeAtual();
-        cadastroDao.atualizarFilme(m, jTable2.getSelectedRow());
-        reloadTableFilmes();
+        //getFilmeAtual();
+        //cadastroDao.atualizarFilme(m, jTable2.getSelectedRow());
+        //reloadTableFilmes();
     }//GEN-LAST:event_jBeditarfActionPerformed
 
     private void jTnomefilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnomefilmeActionPerformed
@@ -336,22 +338,24 @@ public class MoviesV extends javax.swing.JFrame {
     }//GEN-LAST:event_jCassistido1ActionPerformed
 
     private void jBexcluirfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexcluirfActionPerformed
-        cadastroDao.excluirFilme(jTable2.getSelectedRow());
-        reloadTableFilmes();
+        //cadastroDao.excluirFilme(jTable2.getSelectedRow());
+        //reloadTableFilmes();
     }//GEN-LAST:event_jBexcluirfActionPerformed
 
     private void jBgravarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgravarTxtActionPerformed
+        /*
         ArrayList<Movie> filmes = this.cadastroDao.getFilmesCadastrados();
         
         evt.getActionCommand();
         
         contrArq.escreverMovie(m);
         //contrArq.escreverMovie(filmes, rootPaneCheckingEnabled);
-        
+        */
         
     }//GEN-LAST:event_jBgravarTxtActionPerformed
 
     private void jBlerTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlerTxtActionPerformed
+        /*
         String arquivo = null;
 
         try {
@@ -359,7 +363,7 @@ public class MoviesV extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MoviesV.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
     }//GEN-LAST:event_jBlerTxtActionPerformed
 
 

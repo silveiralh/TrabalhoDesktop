@@ -1,43 +1,116 @@
 
 package Controller;
 
+import Model.Movie;
 import Model.Serie;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Rique
- */
+
 public class SerieController {
-        ArrayList<Serie> listaS = new ArrayList(); 
     
-    public SerieController() {
-       this.listaS = new ArrayList<>();
-    }
-    
-    public void cadastrarSerie(Serie serie){
-        this.listaS.add(serie);
-    }
-    
-    public void atualizarSerie(Serie serie, int index){
-        if(index < 0){
-            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser alterado");
-            return;
+   // <editor-fold defaultstate="collapsed" desc=" CRUD ">
+    public boolean criarSerie(ArrayList listaCriar) {
+        boolean retorno = false;
+        
+        if (this.validarDados(listaCriar, false)) {
+            Iterator iterator = listaCriar.iterator();
+
+            Serie novaSerie = new Serie(
+                    (String) iterator.next().toString(),
+                    (int) iterator.next(),
+                    (boolean) iterator.next(),
+                    (boolean) iterator.next()
+            );
+            retorno = novaSerie.insert();
         }
-        this.listaS.set(index, serie);
+        return retorno;
     }
-    
-    public void excluirSerie(int index){
-        if(index < 0){
-            JOptionPane.showMessageDialog(null, "Selecione um filme na tabela para ser excluido");
-            return;
+
+    public boolean editarSerie(ArrayList listaEditar) {
+        boolean retorno = false;
+
+        if (this.validarDados(listaEditar, true)) {
+            Iterator iterator = listaEditar.iterator();
+            Serie editarSerie = new Serie(
+                    (String) iterator.next(),
+                    (int) iterator.next(),
+                    (boolean) iterator.next(),
+                    (boolean) iterator.next()
+            );
+            retorno = editarSerie.update();
         }
-        this.listaS.remove(index);
+        return retorno;
     }
+
+    /*
+    public boolean excluirSerie(String TituloSerie) {
+        if (TituloSerie != "") {
+            JOptionPane.showMessageDialog(null, "Erro na exclusão.\n");
+            return false;
+        }
+        /*Serie excluiSerie = new Serie(TituloFilme);
+        
+        return excluiSerie.delete();*/
+    //}
     
-    public ArrayList<Serie> getSeriesCadastradas(){
-        return this.listaS;
+
+    public ArrayList listarSerie() {
+        ArrayList<Serie> listagem = Serie.selectAll();
+        if (listagem == null) {
+            return null;
+        }
+        Iterator iterator = listagem.iterator();
+        ArrayList retorno = new ArrayList();
+
+        if (listagem.isEmpty()) {
+            return null;
+        }
+
+        while (iterator.hasNext()) {
+            Serie listaSerie = (Serie) iterator.next();
+            retorno.add(listaSerie.getTituloSerie());
+            retorno.add(listaSerie.getTemporada());
+            retorno.add(listaSerie.getFoiAssitida());
+            retorno.add(listaSerie.getSendoAssistida());
+        }
+
+        return retorno;
     }
-    
+    // </editor-fold>
+   
+   // <editor-fold defaultstate="collapsed" desc=" VALIDAÇÕES ">
+    private boolean validarDados(ArrayList<String> lista, boolean editar) {
+        Iterator iterator = lista.iterator();
+        String message = "Erros: \n\n";
+        boolean valido = true;
+        
+        try {
+            if(editar) {
+                iterator.next();//Passa verificação de id
+            }
+            String nome = (String) iterator.next();
+            if (nome.isEmpty()) {
+                message += "O campo nome é obrigatório.\n";
+                valido = false;
+            }
+            String sigla = (String) iterator.next();
+            
+            boolean ativo = (boolean) iterator.next();
+            
+            if (ativo != true && ativo != false) {
+                message += "Preencha o campo ativo corretamente.\n";
+                valido = false;
+            }
+        } catch (Exception errror) {
+            message += "\nConfira todos os campos!\n";
+            valido = false;
+        }
+        if (!valido) {
+            JOptionPane.showMessageDialog(null, message);
+        }
+        return valido;
+    }
+    // </editor-fold>
 }

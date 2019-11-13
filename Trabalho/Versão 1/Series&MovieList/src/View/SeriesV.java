@@ -21,7 +21,7 @@ public class SeriesV extends javax.swing.JFrame {
         setLocationRelativeTo(this);
     }
     
-
+    /*
     public void reloadTableSeries(){
         
         DefaultTableModel dtm = (DefaultTableModel) jTserielist.getModel();
@@ -45,6 +45,7 @@ public class SeriesV extends javax.swing.JFrame {
         }
         
     }
+    */
     
     public void getSerieAtual(){
         String nome = jTnomes.getText();
@@ -289,9 +290,9 @@ public class SeriesV extends javax.swing.JFrame {
                
         getSerieAtual();
             
-        this.cadastroDao.cadastrarSerie(s);
+        //this.cadastroDao.cadastrarSerie(s);
             
-        reloadTableSeries();
+        //reloadTableSeries();
  
         jTnomes.setText("");
     
@@ -306,14 +307,14 @@ public class SeriesV extends javax.swing.JFrame {
     }//GEN-LAST:event_jTnomesActionPerformed
 
     private void jBeditarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeditarsActionPerformed
-        getSerieAtual();
-        cadastroDao.atualizarSerie(s, jTserielist.getSelectedRow());
-        reloadTableSeries();
+        //getSerieAtual();
+        //cadastroDao.atualizarSerie(s, jTserielist.getSelectedRow());
+        //reloadTableSeries();
     }//GEN-LAST:event_jBeditarsActionPerformed
 
     private void jBexcluirsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexcluirsActionPerformed
-        cadastroDao.excluirSerie(jTserielist.getSelectedRow());
-        reloadTableSeries();
+        //cadastroDao.excluirSerie(jTserielist.getSelectedRow());
+        //reloadTableSeries();
     }//GEN-LAST:event_jBexcluirsActionPerformed
 
     private void jCassistidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCassistidoActionPerformed
@@ -321,15 +322,16 @@ public class SeriesV extends javax.swing.JFrame {
     }//GEN-LAST:event_jCassistidoActionPerformed
 
     private void jBgravacaotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBgravacaotxtActionPerformed
-         ArrayList<Serie> series = this.cadastroDao.getSeriesCadastradas();
+        // ArrayList<Serie> series = this.cadastroDao.getSeriesCadastradas();
         
         evt.getActionCommand();
         
-        contrArq.escreverSerie(s);
+        //contrArq.escreverSerie(s);
           
     }//GEN-LAST:event_jBgravacaotxtActionPerformed
 
     private void jBleituratxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBleituratxtActionPerformed
+        /*
         String arquivo = null;
         
         
@@ -338,6 +340,7 @@ public class SeriesV extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SeriesV.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
         
     }//GEN-LAST:event_jBleituratxtActionPerformed
 

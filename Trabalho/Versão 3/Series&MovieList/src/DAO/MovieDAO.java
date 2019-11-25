@@ -13,6 +13,15 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 public class MovieDAO {
+    
+    //ATENÇÃO
+    
+    //ESTA CLASSE NAO ESTA SENDO UTILIZADA PARA OPERAÇÕES NO BANCO
+    //PARA VER AS OPERAÇÕES NO BANCO, VER A CLASSE
+    //Controller.MovieController
+    //
+    //Esta classe não esta sendo utilizada pra nada!
+    
     protected static boolean insert(Movie movie) {
         boolean retorno = false;
         PreparedStatement pstdados = null;
@@ -31,9 +40,9 @@ public class MovieDAO {
             connection = bd.conectaBD();
             pstdados = connection.prepareStatement(sqldml, tipo, concorrencia);
 
-            pstdados.setString(1, movie.getTituloFilme());
-            pstdados.setString(2, movie.getGenero());
-            pstdados.setBoolean(3, movie.getFoiAssistido());
+            pstdados.setString(1, movie.getTitle());
+            pstdados.setString(2, movie.getGenre());
+            pstdados.setBoolean(3, movie.getSeen());
            
             pstdados.executeUpdate();
             //Chama o Commit
@@ -71,9 +80,9 @@ public class MovieDAO {
             connection = bd.conectaBD();
             pstdados = connection.prepareStatement(sqldml, tipo, concorrencia);
 
-            pstdados.setString(1, movie.getTituloFilme());
-            pstdados.setString(2, movie.getGenero());
-            pstdados.setBoolean(3, movie.getFoiAssistido());
+            pstdados.setString(1, movie.getTitle());
+            pstdados.setString(2, movie.getGenre());
+            pstdados.setBoolean(3, movie.getSeen());
           
 
             pstdados.executeUpdate();
